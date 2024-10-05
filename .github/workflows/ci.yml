@@ -1,0 +1,13 @@
+name: CI (continuous integration)
+
+on:
+  push:
+    paths-ignore: ["**.md"]
+    branches-ignore: ["master"]
+    tags-ignore:
+      - "**"
+  workflow_call:
+
+jobs:
+  ci:
+    uses: ./.github/workflows/lint_and_test.yml
