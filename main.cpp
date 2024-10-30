@@ -30,7 +30,7 @@ ignored. That is to say, they aren’t part of any cluster.
 #include "argparse/argparse.hpp"
 #include "cal_epsilon.hpp"
 #include "cloudparse/parser.hpp"
-#include "clusters_color.hpp"
+// #include "clusters_color.hpp"
 #include "dbscan/dbScan.h"
 #include "save_cluster.hpp"
 #include "visualizer.hpp"
@@ -40,6 +40,8 @@ int main(int argc, char **argv) {
   std::cout << "*** DBSCAN Cluster Segmentation *** " << std::endl;
   std::cout << "*************************************" << std::endl;
 
+  pcl::console::setVerbosityLevel(pcl::console::L_INFO);
+  
   // -----------------Command line interface -----------------
   argparse::ArgumentParser arg_parser(argv[0]);
 
@@ -69,7 +71,7 @@ int main(int argc, char **argv) {
   cloud_parser.load_cloudfile(arg_parser.get<std::string>("--cloudfile"), cloud);
 
   // set cloud metadata
-  cloud->width = (int)cloud->points.size();
+  cloud->width = static_cast<int>(cloud->points.size());
   cloud->height = 1;
   cloud->is_dense = true;
 
@@ -94,6 +96,7 @@ int main(int argc, char **argv) {
   float eps = arg_parser.get<float>("--eps");
   int minPtsAux = arg_parser.get<int>("--minPtsAux");
   int minPts = arg_parser.get<int>("--minPts");
+
 
   if (minPts < 3) {
     pcl::console::print_error("\nminPts must be >= 3! \n");

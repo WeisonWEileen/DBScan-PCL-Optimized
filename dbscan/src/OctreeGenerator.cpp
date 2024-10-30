@@ -18,7 +18,7 @@ OctreeGenerator::~OctreeGenerator() {}
 ///@param[in] depth The depth of the point cloud.
 ///@param[in] numOfPoints The num of points in the point cloud.
 void OctreeGenerator::initRandomCloud(const float width, const float height, const float depth, const int numOfPoints) {
-  srand((unsigned int)time(NULL));
+  srand(static_cast<unsigned int>(time(NULL)));
   // Generate pointcloud data
 
   cloud->width = numOfPoints;

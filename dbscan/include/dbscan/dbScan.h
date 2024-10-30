@@ -36,7 +36,7 @@ class dbscan {
   std::vector<pcl::mod_pointXYZ> clustersCentroids;
   pcl::mod_pointXYZ centroid;
 
-  void calculateCentroid(std::vector<pcl::mod_pointXYZ> group);
+  void calculateCentroid(std::vector<pcl::mod_pointXYZ>& group);
   void octreeRegionQuery(htr::OctreeGenerator *octreeGen, pcl::mod_pointXYZ &searchPoint, double eps, std::vector<int> *retKeys);
   void DBSCAN_Octree_merge(htr::OctreeGenerator *octreeGen, float eps, int minPts);
   void DBSCAN_Octree(htr::OctreeGenerator *octreeGen, float eps, int minPts);

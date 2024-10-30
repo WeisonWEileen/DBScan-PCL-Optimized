@@ -1,6 +1,3 @@
-# #############################################################################
-# LIBRARY NAME
-# #############################################################################
 cmake_minimum_required(VERSION 3.12.4)
 project(dbscan
     VERSION 1.0.3
@@ -11,6 +8,7 @@ project(dbscan
 set(Eigen3_DIR /usr/share/cmake/Modules)
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.8 REQUIRED QUIET COMPONENTS octree kdtree)
+
 
 if(PCL_FOUND)
     message(STATUS "PCL status:")
@@ -86,3 +84,5 @@ install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
+
+

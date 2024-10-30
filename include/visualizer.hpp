@@ -2,8 +2,9 @@
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
+#include "clusters_color.hpp"
 #include "dbscan/cluster.h"
-
+#include <random>
 void display_clusters(pcl::PointCloud<pcl::PointXYZRGB>::Ptr &cloud, std::vector<dbScanSpace::cluster> &clusters) {
   // Disable vtk render warning
   vtkObject::GlobalWarningDisplayOff();

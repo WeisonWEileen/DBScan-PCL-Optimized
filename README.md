@@ -17,6 +17,11 @@ It was modified with:
 * It was replaced the input file from CSV to PCD 
 * It was added a cluster coloring method for original color of the point cloud
 
+
+## dbscan 参数调试
+```
+./build/app --cloudfile ./data/pVoxelMap.pcd --eps 0.5 --minPts 5 --minPtsAux 5 -d --octree-res 240
+```
 ## Input file extension supported
 
 | Format      | Description |
