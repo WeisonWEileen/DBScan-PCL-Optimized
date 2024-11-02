@@ -57,16 +57,11 @@ void OctreeGenerator::initOctree(const int resolution) {
   currentExtractionLevel = octree_p->getTreeDepth();
   extractPointsAtLevel(currentExtractionLevel);
   //************************************
-  // octree.setInputCloud (cloud);
-  // octree.addPointsFromInputCloud ();
-  // octree.setResolution(resolution);
-  // currentExtractionLevel = octree.getTreeDepth();
-  // extractPointsAtLevel(currentExtractionLevel);
 }
 
 /// Calculates the position of each voxel that exists at a specified tree depth.
 ///@param[in] depth The selected tree depth in the octree.
-void OctreeGenerator::extractPointsAtLevel(const int depth) {
+void OctreeGenerator::extractPointsAtLevel(const unsigned int depth) {
   if (depth >= 0 && depth <= octree_p->getTreeDepth()) {
     currentExtractionLevel = depth;
 
@@ -97,10 +92,6 @@ void OctreeGenerator::extractPointsAtLevel(const int depth) {
         octreeCentroids.push_back(p);
       }
     }
-    // cout<<"Extracted Points: "<<displayPoints.size()<<endl;
-    // double end = pcl::getTime ();
-    // printf("%zu pts, %.4gs. %.4gs./pt. =====\n", displayCloud->points.size (), end - start,
-    //(end - start) / static_cast<double> (displayCloud->points.size ()));
   }
 }
 

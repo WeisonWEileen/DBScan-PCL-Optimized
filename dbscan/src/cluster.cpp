@@ -1,7 +1,7 @@
 #include <dbscan/cluster.h>
 
 namespace dbScanSpace {
-cluster::cluster() { visited = false; }
+cluster::cluster() : visited(false) {}
 
 void cluster::calculateCentroid() {
   if (clusterPoints.size() > 0) {

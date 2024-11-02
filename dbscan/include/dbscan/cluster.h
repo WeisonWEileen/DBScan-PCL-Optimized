@@ -7,7 +7,7 @@
 #define CLUSTER
 
 #include "HTRBasicDataStructures.h"
-#include "OctreeGenerator.h"
+// #include "OctreeGenerator.h"
 
 namespace dbScanSpace {
 class cluster {

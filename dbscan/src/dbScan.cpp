@@ -25,15 +25,6 @@ void dbscan::generateClusters_one_step() {
   // A first set of clusters is generated. This first set has a large number of small clusters.
   DBSCAN_Octree_fast_one_step(octreeGenIn, eps, minPts);
 
-  //// The clusters centroids are calculated and used to generate a second octree.
-  // for (dbScanSpace::cluster cluster : clustersAux)
-  //	clustersCentroids.push_back(cluster.centroid);
-
-  // octreeGen->initCloudFromVector<pcl::mod_pointXYZ>(clustersCentroids);
-  // octreeGen->initOctree(octreeResolution);
-
-  //// Using the second octree and the centroids of the clusters, a new set of clusters is
-  /// generated.
   //// These are the final clusters.
   // DBSCAN_Octree_merge(octreeGen, 2 * eps, minPts);
   for (int i = 0; i < clusters.size(); i++) {
@@ -54,7 +45,7 @@ void dbscan::generateClusters() {
   clustersCentroids.clear();
 
   // A first set of clusters is generated. This first set has a large number of small clusters.
-  DBSCAN_Octree(octreeGenIn, eps, minPtsAux);
+  DBSCAN_Octree(octreeGenIn, eps, minPtsAux);  
 
   // The clusters centroids are calculated and used to generate a second octree.
   for (dbScanSpace::cluster &cluster : clustersAux) {
@@ -90,7 +81,7 @@ void dbscan::generateClusters_fast() {
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr new_cloud(new pcl::PointCloud<pcl::PointXYZRGB>());
   CloudToVector(clustersCentroids, new_cloud);
-  octreeGen->initCloudFromVector<pcl::mod_pointXYZ>(clustersCentroids, new_cloud);
+  octreeGen->initCloudFromVector<pcl::mod_pointXYZ>(new_cloud);
   octreeGen->initOctree(octreeResolution);
 
   // Using the second octree and the centroids of the clusters, a new set of clusters is generated.
@@ -364,4 +355,3 @@ void dbscan::DBSCAN_Octree_fast2(htr::OctreeGenerator *octreeGen, int minPts) {
   }
 }
 }  // namespace dbScanSpace
-

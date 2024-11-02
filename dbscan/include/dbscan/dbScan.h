@@ -59,7 +59,7 @@ void dbscan::init(const std::vector<T> &points, const pcl::PointCloud<pcl::Point
   minPtsAux = minPtsAux_;
   octreeResolution = octreeResolution_;
 
-  octreeGenIn->initCloudFromVector<T>(points, input_cloud);
+  octreeGenIn->initCloudFromVector<T>(input_cloud);
   octreeGenIn->initOctree(octreeResolution);
 
   // centroid = octreeGenIn->getCloudCentroid();

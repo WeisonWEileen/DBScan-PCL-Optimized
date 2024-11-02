@@ -15,9 +15,9 @@ namespace pcl {
 
 class mod_pointXYZ : public PointXYZRGB {
  public:
-  mod_pointXYZ() {
+  mod_pointXYZ() : id(0) {
     x = y = z = 0;
-    id = 0;
+    // id = 0;
   }
 
   mod_pointXYZ(float x, float y, float z) : PointXYZRGB(x, y, z) { id = 0; }
@@ -47,9 +47,9 @@ struct Point3D {
   unsigned int b;
 
   void initRandom() {
-    x = (rand() % 40);
-    y = (rand() % 40);
-    z = (rand() % 40);
+    x = static_cast<float>(rand() % 40);
+    y = static_cast<float>(rand() % 40);
+    z = static_cast<float>(rand() % 40);
   }
 };
 
