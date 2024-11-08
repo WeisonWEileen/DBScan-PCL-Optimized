@@ -45,7 +45,7 @@ void dbscan::generateClusters() {
   clustersCentroids.clear();
 
   // A first set of clusters is generated. This first set has a large number of small clusters.
-  DBSCAN_Octree(octreeGenIn, eps, minPtsAux);  
+  DBSCAN_Octree(octreeGenIn, eps, minPtsAux);
 
   // The clusters centroids are calculated and used to generate a second octree.
   for (dbScanSpace::cluster &cluster : clustersAux) {

@@ -9,15 +9,6 @@ set(Eigen3_DIR /usr/share/cmake/Modules)
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.8 REQUIRED QUIET COMPONENTS octree kdtree)
 
-
-if(PCL_FOUND)
-    message(STATUS "PCL status:")
-    message(STATUS "    version: ${PCL_VERSION}")
-    message(STATUS "    directory: ${PCL_DIR}")
-else()
-    message(FATAL_ERROR "   ERROR: PCL minimum required version 1.8. Not found")
-endif()
-
 # #############################################################################
 # COMPILE LIBRARY
 # #############################################################################
@@ -25,6 +16,7 @@ add_library(${PROJECT_NAME} SHARED
     src/cluster.cpp
     src/dbScan.cpp
     src/OctreeGenerator.cpp
+    src/visualizer.cpp
 )
 
 # #############################################################################

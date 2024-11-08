@@ -33,7 +33,7 @@ ignored. That is to say, they aren’t part of any cluster.
 // #include "clusters_color.hpp"
 #include "dbscan/dbScan.h"
 #include "save_cluster.hpp"
-#include "visualizer.hpp"
+#include "dbscan/visualizer.h"
 
 int main(int argc, char **argv) {
   std::cout << "\n*************************************" << std::endl;

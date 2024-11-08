@@ -20,7 +20,7 @@ class mod_pointXYZ : public PointXYZRGB {
     // id = 0;
   }
 
-  mod_pointXYZ(float x, float y, float z) : PointXYZRGB(x, y, z) { id = 0; }
+  mod_pointXYZ(float x, float y, float z) : PointXYZRGB(x, y, z),id(0) { }
   /*
   mod_pointXYZ(unsigned int r, unsigned int g, unsigned int b) : PointXYZRGB(r,g,b){
       id = 0;

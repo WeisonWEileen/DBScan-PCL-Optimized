@@ -22,7 +22,6 @@ class DBSCAN {
   double eps;
   int minPts;
   std::function<double(const T&, const T&)> distFunc;
-
   std::vector<int> rangeQuery(const std::vector<T>& data, int i);
 };
 
@@ -81,12 +80,15 @@ std::vector<int> DBSCAN<T>::rangeQuery(const std::vector<T>& data, int idx) {
       continue;
     }
     auto dis = distFunc(point, data[i]);
+    // std::cout << dis << std::endl;
+    // if (dis == 0) {
+    //   std::cout << idx << " " << i << std::endl;
+    // //   std::cout << data[idx] << std::endl;
+    // }
     if (dis <= eps) {
       neighbors_indexes.push_back(i);
     }
   }
-  std::cout << "neighbors size: " << neighbors_indexes.size() << std::endl;
   return neighbors_indexes;
 }
-
 }  // namespace color

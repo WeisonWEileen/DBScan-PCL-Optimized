@@ -19,11 +19,6 @@ fetch_project(
         URL https://github.com/p-ranav/argparse/archive/v2.6.tar.gz
 )
         
-message("\n" "${BoldCyan}=========================================")
-message("${BoldCyan}Project: ${PROJECT_NAME} ")
-message("${BoldCyan}=========================================")
-
-
 
 find_package(PCL  REQUIRED QUIET COMPONENTS visualization)
 find_package(VTK  REQUIRED QUIET COMPONENTS vtkRenderingContextOpenGL2)
@@ -62,6 +57,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE -Wno-cpp
     -mfsgsbase
     -mpclmul
 )
+
 install( TARGETS ${PROJECT_NAME}
 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
